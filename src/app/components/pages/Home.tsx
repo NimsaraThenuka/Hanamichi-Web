@@ -305,12 +305,12 @@ export function Home() {
 
           <div className="space-y-8">
             {[
-              { step: '1', title: 'Free Consultation', description: 'Understanding student goals and interests.', color: 'from-blue-500 to-cyan-500' },
-              { step: '2', title: 'Program Planning', description: 'Choosing countries and educational pathways.', color: 'from-purple-500 to-pink-500' },
-              { step: '3', title: 'Application Support', description: 'Complete support for applications and documents.', color: 'from-green-500 to-emerald-500' },
-              { step: '4', title: 'Preparation', description: 'Interview guidance and overseas preparation.', color: 'from-orange-500 to-red-500' },
-              { step: '5', title: 'Overseas Experience', description: 'Students begin their international educational journey.', color: 'from-indigo-500 to-purple-500' },
-              { step: '6', title: 'Future Growth', description: 'Long-term mentoring and career support.', color: 'from-pink-500 to-rose-500' },
+              { step: '1', title: 'Free Consultation', description: 'Understanding student goals and interests.', color: 'from-[#14D5C7] to-[#14D5C7]/70' },
+              { step: '2', title: 'Program Planning', description: 'Choosing countries and educational pathways.', color: 'from-[#14D5C7] to-[#14D5C7]/70' },
+              { step: '3', title: 'Application Support', description: 'Complete support for applications and documents.', color: 'from-[#14D5C7] to-[#14D5C7]/70' },
+              { step: '4', title: 'Preparation', description: 'Interview guidance and overseas preparation.', color: 'from-[#14D5C7] to-[#14D5C7]/70' },
+              { step: '5', title: 'Overseas Experience', description: 'Students begin their international educational journey.', color: 'from-[#14D5C7] to-[#14D5C7]/70' },
+              { step: '6', title: 'Future Growth', description: 'Long-term mentoring and career support.', color: 'from-[#14D5C7] to-[#14D5C7]/70' },
             ].map((item, index) => (
               <motion.div
                 key={index}
