@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { PageHero } from '../PageHero';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export function WhyHanamichi() {
+  const { t } = useLanguage();
+  
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     whileInView: { opacity: 1, y: 0 },
@@ -12,28 +15,28 @@ export function WhyHanamichi() {
   const features = [
     {
       number: '01',
-      title: 'Step-by-step Personalized Design',
-      description: 'Even with the same grades, the optimal path differs. We expand possibilities at each developmental stage.'
+      title: t('whyUs.feature1.title'),
+      description: t('whyUs.feature1.desc')
     },
     {
       number: '02',
-      title: 'Long-term Perspective Beyond Exam Year',
-      description: 'We look beyond university acceptance toward career and social engagement.'
+      title: t('whyUs.feature2.title'),
+      description: t('whyUs.feature2.desc')
     },
     {
       number: '03',
-      title: 'Making Overseas Universities Accessible',
-      description: "You don't need perfect English. There are step-by-step routes worldwide."
+      title: t('whyUs.feature3.title'),
+      description: t('whyUs.feature3.desc')
     },
     {
       number: '04',
-      title: 'Real Experience + Multi-faceted Expertise',
-      description: 'Active educational counselling with international and practical experience.'
+      title: t('whyUs.feature4.title'),
+      description: t('whyUs.feature4.desc')
     },
     {
       number: '05',
-      title: 'Network Spanning 20+ Countries',
-      description: 'Strong educational partnerships and real global connections.'
+      title: t('whyUs.feature5.title'),
+      description: t('whyUs.feature5.desc')
     },
   ];
 
@@ -41,8 +44,8 @@ export function WhyHanamichi() {
     <div className="bg-[#F8FAFB] pt-24">
       {/* Hero */}
       <PageHero
-        title={<>Why Choose <span className="text-[#14D5C7]">HANAMICHI</span></>}
-        description="Discover what makes HANAMICHI different from other educational agencies and why students choose us for their international journey."
+        title={t('whyUs.hero.title')}
+        description={t('whyUs.hero.desc')}
         image="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
       />
 
@@ -75,3 +78,5 @@ export function WhyHanamichi() {
     </div>
   );
 }
+
+

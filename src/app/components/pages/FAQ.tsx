@@ -3,68 +3,71 @@ import { Link } from 'react-router';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { PageHero } from '../PageHero';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export function FAQ() {
+  const { t } = useLanguage();
+
   const faqs = [
     {
-      question: 'What level of English do I need?',
-      answer: 'It depends on the country and program you choose. Some pathways require English proficiency, while others provide step-by-step support starting from beginner level.'
+      question: t('faq.q1.q'),
+      answer: t('faq.q1.a')
     },
     {
-      question: 'From what grade can I consult?',
-      answer: 'Students can begin consultations from junior high school. Early planning allows families to explore more opportunities.'
+      question: t('faq.q2.q'),
+      answer: t('faq.q2.a')
     },
     {
-      question: 'How much does it cost?',
-      answer: 'Program fees vary depending on destination and duration. Examples: Taiwan universities: approximately JPY 600,000/year, Ireland short-term programs: approximately JPY 400,000+'
+      question: t('faq.q3.q'),
+      answer: t('faq.q3.a')
     },
     {
-      question: 'Is counselling online or in-person?',
-      answer: 'Both options are available through Zoom or at the Takarazuka office.'
+      question: t('faq.q4.q'),
+      answer: t('faq.q4.a')
     },
     {
-      question: 'Can parents join the consultation?',
-      answer: 'Yes. Parent participation is highly encouraged.'
+      question: t('faq.q5.q'),
+      answer: t('faq.q5.a')
     },
     {
-      question: 'What are the advantages of studying in Taiwan?',
-      answer: 'Safe environment, affordable tuition, scholarship opportunities, multilingual learning, and close proximity to Japan.'
+      question: t('faq.q6.q'),
+      answer: t('faq.q6.a')
     },
     {
-      question: 'How is HANAMICHI different from other agencies?',
-      answer: 'We focus on long-term personalized educational guidance beyond university admissions.'
+      question: t('faq.q7.q'),
+      answer: t('faq.q7.a')
     },
     {
-      question: 'Are there short-term study tours?',
-      answer: 'Yes. Seasonal international study tours are available from 1 week.'
+      question: t('faq.q8.q'),
+      answer: t('faq.q8.a')
     },
     {
-      question: 'What payment methods are available?',
-      answer: 'Bank transfer.'
+      question: t('faq.q9.q'),
+      answer: t('faq.q9.a')
     },
     {
-      question: 'How is personal information managed?',
-      answer: 'All personal information is managed securely according to our Privacy Policy.'
+      question: t('faq.q10.q'),
+      answer: t('faq.q10.a')
     },
     {
-      question: 'Can students with low English ability still study abroad?',
-      answer: 'Yes. Many pathways allow gradual language development.'
+      question: t('faq.q11.q'),
+      answer: t('faq.q11.a')
     },
     {
-      question: 'Do you help with scholarships?',
-      answer: 'Yes. We provide scholarship guidance and affordable pathway support.'
+      question: t('faq.q12.q'),
+      answer: t('faq.q12.a')
     },
     {
-      question: 'Which countries are available for study tours?',
-      answer: 'Taiwan, UK, Ireland, Canada, Malaysia, Finland, Czech Republic, Cambodia, Spain, and Australia.'
+      question: t('faq.q13.q'),
+      answer: t('faq.q13.a')
     },
     {
-      question: 'How long does the application process take?',
-      answer: 'It depends on the country and institution. Early consultation is recommended.'
+      question: t('faq.q14.q'),
+      answer: t('faq.q14.a')
     },
     {
-      question: 'How can I start my journey with HANAMICHI?',
-      answer: 'Book a free consultation session to discuss goals, programs, and future opportunities.'
+      question: t('faq.q15.q'),
+      answer: t('faq.q15.a')
     },
   ];
 
@@ -73,8 +76,8 @@ export function FAQ() {
       {/* Hero */}
       <PageHero
         label="FAQ"
-        title="Frequently Asked Questions"
-        description="We understand that studying abroad and planning an international future can feel overwhelming. Here are answers to some of the most common questions students and parents ask HANAMICHI."
+        title={t('faq.hero.title')}
+        description={t('faq.hero.desc')}
         image="https://images.unsplash.com/photo-1633613287848-e6f43bbafb8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
       />
 
@@ -123,23 +126,23 @@ export function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl text-[#0B1020] mb-6">Still Have Questions?</h2>
+            <h2 className="text-4xl md:text-5xl text-[#0B1020] mb-6">{t('faq.cta.title')}</h2>
             <p className="text-[#161616]/70 text-lg mb-10 leading-relaxed">
-              Our team is happy to support students and families through every step of the international education journey.
+              {t('faq.cta.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
                 className="group inline-flex items-center justify-center space-x-3 px-10 py-5 bg-gradient-to-r from-[#14D5C7] via-[#14D5C7] to-[#14D5C7]/90 text-white rounded-full hover:shadow-2xl hover:shadow-[#14D5C7]/60 transition-all duration-300 hover:scale-105 font-semibold"
               >
-                <span>Book Free Consultation</span>
+                <span>{t('faq.cta.consultation')}</span>
                 <ArrowRight className="group-hover:translate-x-2 transition-transform" size={20} />
               </Link>
               <Link
                 to="/contact"
                 className="group inline-flex items-center justify-center space-x-3 px-10 py-5 bg-gradient-to-r from-[#0B1020] to-[#161616] text-[#F8FAFB] rounded-full hover:shadow-2xl hover:shadow-[#0B1020]/50 transition-all duration-300 hover:scale-105 border-2 border-[#0B1020] font-semibold"
               >
-                <span>Contact HANAMICHI</span>
+                <span>{t('faq.cta.contact')}</span>
                 <ArrowRight className="group-hover:translate-x-2 transition-transform" size={20} />
               </Link>
             </div>
@@ -149,3 +152,5 @@ export function FAQ() {
     </div>
   );
 }
+
+

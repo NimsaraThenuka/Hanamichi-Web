@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { PageHero } from '../PageHero';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export function Partners() {
+  const { t } = useLanguage();
+  
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     whileInView: { opacity: 1, y: 0 },
@@ -22,8 +25,8 @@ export function Partners() {
     <div className="bg-[#F8FAFB] pt-24">
       {/* Hero */}
       <PageHero
-        title={<>Our <span className="text-[#14D5C7]">Partners</span></>}
-        description="Building bridges to educational excellence through our global network of partner institutions."
+        title={t('partners.hero.title')}
+        description={t('partners.hero.desc')}
         image="https://images.unsplash.com/photo-1638262052640-82e94d64664a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
       />
 
@@ -31,7 +34,7 @@ export function Partners() {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="text-4xl text-[#0B1020] mb-4">Overseas Educational Institutions</h2>
+            <h2 className="text-4xl text-[#0B1020] mb-4">{t('partners.overseas.title')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -46,7 +49,7 @@ export function Partners() {
                 <div className="relative z-10">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#14D5C7] to-[#14D5C7]/70 rounded-xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform duration-500">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001-1z" />
                     </svg>
                   </div>
                   <h3 className="text-xl text-[#0B1020] mb-2 font-semibold group-hover:text-[#14D5C7] transition-colors">{partner.name}</h3>
@@ -61,16 +64,16 @@ export function Partners() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#14D5C7]/10 to-transparent rounded-full blur-3xl" />
             <div className="relative z-10">
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#14D5C7]/20 to-[#14D5C7]/10 rounded-full mb-6 border border-[#14D5C7]/30">
-                <span className="text-[#0B1020] text-sm font-semibold tracking-wide uppercase">Domestic Partner</span>
+                <span className="text-[#0B1020] text-sm font-semibold tracking-wide uppercase">{t('partners.domestic.label')}</span>
               </div>
               <h3 className="text-2xl text-[#14D5C7] mb-4 font-bold">Hotoku Gakuen Junior & Senior High School</h3>
               <div className="flex items-center space-x-2 mb-3">
                 <svg className="w-5 h-5 text-[#14D5C7]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <p className="text-[#161616]/80 font-medium">Nishinomiya, Hyogo, Japan</p>
+                <p className="text-[#161616]/80 font-medium">{t('partners.domestic.location')}</p>
               </div>
-              <p className="text-[#161616]/70 leading-relaxed">International career guidance partnership.</p>
+              <p className="text-[#161616]/70 leading-relaxed">{t('partners.domestic.desc')}</p>
             </div>
           </motion.div>
         </div>
@@ -80,9 +83,9 @@ export function Partners() {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
-            <h2 className="text-4xl text-[#0B1020] mb-6">University Destinations</h2>
+            <h2 className="text-4xl text-[#0B1020] mb-6">{t('partners.destinations.title')}</h2>
             <p className="text-[#161616]/70 text-lg mb-12">
-              106 acceptances across 18 countries (as of April 2026)
+              {t('partners.destinations.subtitle')}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {[
@@ -133,3 +136,5 @@ export function Partners() {
     </div>
   );
 }
+
+

@@ -1,7 +1,10 @@
 import { Link } from 'react-router';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-[#0B1020] text-[#F8FAFB]/80 border-t border-[#14D5C7]/20">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -11,39 +14,39 @@ export function Footer() {
             <img
               src="https://res.cloudinary.com/dyp247eoh/image/upload/v1778906689/Artboard_2_5x-100_daeaj9.jpg"
               alt="HANAMICHI"
-              className="h-12 w-auto mb-6"
+              className="h-16 w-auto mb-6"
             />
             <p className="text-sm leading-relaxed mb-4">
-              Nurturing globally confident individuals who can carve their own path on the world stage.
+              {t('footer.company.desc')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[#14D5C7] mb-4">Quick Links</h4>
+            <h4 className="text-[#14D5C7] mb-4">{t('footer.links.title')}</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="hover:text-[#14D5C7] transition-colors">About</Link></li>
-              <li><Link to="/programs" className="hover:text-[#14D5C7] transition-colors">Programs</Link></li>
-              <li><Link to="/partners" className="hover:text-[#14D5C7] transition-colors">Partners</Link></li>
-              <li><Link to="/faq" className="hover:text-[#14D5C7] transition-colors">FAQ</Link></li>
-              <li><Link to="/contact" className="hover:text-[#14D5C7] transition-colors">Contact</Link></li>
+              <li><Link to="/about" className="hover:text-[#14D5C7] transition-colors">{t('nav.about')}</Link></li>
+              <li><Link to="/programs" className="hover:text-[#14D5C7] transition-colors">{t('nav.programs')}</Link></li>
+              <li><Link to="/partners" className="hover:text-[#14D5C7] transition-colors">{t('nav.partners')}</Link></li>
+              <li><Link to="/faq" className="hover:text-[#14D5C7] transition-colors">{t('nav.faq')}</Link></li>
+              <li><Link to="/contact" className="hover:text-[#14D5C7] transition-colors">{t('nav.contact')}</Link></li>
             </ul>
           </div>
 
           {/* Programs */}
           <div>
-            <h4 className="text-[#14D5C7] mb-4">Programs</h4>
+            <h4 className="text-[#14D5C7] mb-4">{t('footer.programs.title')}</h4>
             <ul className="space-y-2">
-              <li><Link to="/programs/study-tours" className="hover:text-[#14D5C7] transition-colors">Study Tours</Link></li>
-              <li><Link to="/programs/university" className="hover:text-[#14D5C7] transition-colors">University Admission</Link></li>
-              <li><Link to="/programs/counselling" className="hover:text-[#14D5C7] transition-colors">Counselling</Link></li>
-              <li><Link to="/programs/workshop" className="hover:text-[#14D5C7] transition-colors">Workshops</Link></li>
+              <li><Link to="/programs" className="hover:text-[#14D5C7] transition-colors">{t('nav.programs')}</Link></li>
+              <li><Link to="/programs" className="hover:text-[#14D5C7] transition-colors">Study Tours</Link></li>
+              <li><Link to="/programs" className="hover:text-[#14D5C7] transition-colors">University Admission</Link></li>
+              <li><Link to="/programs" className="hover:text-[#14D5C7] transition-colors">Counselling</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-[#14D5C7] mb-4">Contact</h4>
+            <h4 className="text-[#14D5C7] mb-4">{t('footer.contact.title')}</h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-1 flex-shrink-0 text-[#14D5C7]" />
@@ -66,13 +69,14 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[#14D5C7]/20 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm">&copy; {new Date().getFullYear()} HANAMICHI LLC. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} HANAMICHI LLC. {t('footer.rights')}</p>
           <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm hover:text-[#14D5C7] transition-colors">Privacy Policy</Link>
-            <Link to="/legal" className="text-sm hover:text-[#14D5C7] transition-colors">Legal</Link>
+            <Link to="/contact" className="text-sm hover:text-[#14D5C7] transition-colors">Privacy Policy</Link>
+            <Link to="/contact" className="text-sm hover:text-[#14D5C7] transition-colors">Legal</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
+

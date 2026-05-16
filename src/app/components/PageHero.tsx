@@ -50,3 +50,4 @@ export function PageHero({ title, description, label, image }: PageHeroProps) {
     </section>
   );
 }
+

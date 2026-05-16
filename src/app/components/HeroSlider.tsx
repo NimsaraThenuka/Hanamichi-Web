@@ -2,31 +2,37 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const slides = [
   {
     image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
-    label: 'HANAMICHI GLOBAL EDUCATION',
-    title: ['Find the Perfect Place', 'to Make Your Dreams', 'Come True.'],
-    description: 'Career planning is more than choosing a university. It is about discovering your future, building confidence, and finding opportunities beyond borders.',
+    id: 'hero',
   },
   {
     image: 'https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
-    label: 'INTERNATIONAL OPPORTUNITIES',
-    title: ['Unlock Your', 'Global Potential', 'Today.'],
-    description: 'HANAMICHI supports students through personalized international education pathways, overseas experiences, and long-term career guidance.',
+    id: 'hero_2',
   },
   {
     image: 'https://images.unsplash.com/photo-1539207004020-449ced88dbf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
-    label: 'YOUR JOURNEY STARTS HERE',
-    title: ['Explore the World', 'Through Education', 'and Experience.'],
-    description: 'Step-by-step guidance for students at every level to discover hidden pathways and international experiences that transform futures.',
+    id: 'hero_3',
   },
 ];
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const { t } = useLanguage();
+
+  const currentSlideData = {
+    label: t(`${slides[currentSlide].id}.label`),
+    title: [
+      t(`${slides[currentSlide].id}.title1`),
+      t(`${slides[currentSlide].id}.title2`),
+      t(`${slides[currentSlide].id}.title3`),
+    ],
+    description: t(`${slides[currentSlide].id}.description`),
+  };
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -119,7 +125,7 @@ export function HeroSlider() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -147,7 +153,7 @@ export function HeroSlider() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-8 md:py-16 text-center">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide}>
             <motion.div
@@ -158,12 +164,12 @@ export function HeroSlider() {
               className="mb-6"
             >
               <span className="text-[#14D5C7] tracking-[0.3em] uppercase text-sm">
-                {slides[currentSlide].label}
+                {currentSlideData.label}
               </span>
             </motion.div>
 
-            <div className="mb-8">
-              {slides[currentSlide].title.map((line, index) => (
+            <div className="mb-4 md:mb-6">
+              {currentSlideData.title.map((line, index) => (
                 <motion.h1
                   key={`${currentSlide}-${index}`}
                   variants={textVariants}
@@ -172,10 +178,10 @@ export function HeroSlider() {
                   exit="exit"
                   custom={index}
                   transition={{ delay: index * 0.1 }}
-                  className="text-5xl md:text-7xl lg:text-8xl text-[#F8FAFB] leading-tight"
+                  className="text-3xl md:text-5xl lg:text-6xl text-[#F8FAFB] leading-tight"
                   style={{ perspective: '1000px' }}
                 >
-                  {line === 'Come True.' || line === 'Today.' || line === 'and Experience.' ? (
+                  {line.includes('Come True.') || line.includes('Today.') || line.includes('and Experience.') || line.includes('見つけよう。') ? (
                     <span className="text-[#14D5C7]">{line}</span>
                   ) : (
                     line
@@ -190,9 +196,9 @@ export function HeroSlider() {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-[#F8FAFB]/70 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed"
+              className="text-[#F8FAFB]/70 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed"
             >
-              {slides[currentSlide].description}
+              {currentSlideData.description}
             </motion.p>
 
             <motion.div
@@ -204,17 +210,17 @@ export function HeroSlider() {
             >
               <Link
                 to="/contact"
-                className="group px-10 py-5 bg-gradient-to-r from-[#14D5C7] via-[#14D5C7] to-[#14D5C7]/90 text-white rounded-full hover:shadow-2xl hover:shadow-[#14D5C7]/60 transition-all duration-300 flex items-center justify-center space-x-3 hover:scale-105 border-2 border-[#14D5C7]"
+                className="group px-6 py-3 bg-gradient-to-r from-[#14D5C7] via-[#14D5C7] to-[#14D5C7]/90 text-white rounded-full hover:shadow-2xl hover:shadow-[#14D5C7]/60 transition-all duration-300 flex items-center justify-center space-x-3 hover:scale-105 border-2 border-[#14D5C7]"
               >
-                <span className="font-semibold text-lg">Free Consultation</span>
-                <ArrowRight className="group-hover:translate-x-2 transition-transform" size={22} />
+                <span className="font-semibold text-sm md:text-base">{t('hero.cta1')}</span>
+                <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
               </Link>
               <Link
                 to="/programs"
-                className="group px-10 py-5 bg-white/10 backdrop-blur-xl border-2 border-white/30 text-[#F8FAFB] rounded-full hover:bg-white/20 hover:border-white/50 hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3"
+                className="group px-6 py-3 bg-white/10 backdrop-blur-xl border-2 border-white/30 text-[#F8FAFB] rounded-full hover:bg-white/20 hover:border-white/50 hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3"
               >
-                <span className="font-semibold text-lg">Explore Programs</span>
-                <ArrowRight className="group-hover:translate-x-2 transition-transform" size={22} />
+                <span className="font-semibold text-sm md:text-base">{t('hero.cta2')}</span>
+                <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
               </Link>
             </motion.div>
           </motion.div>
@@ -244,11 +250,10 @@ export function HeroSlider() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
-              index === currentSlide
+            className={`transition-all duration-300 rounded-full ${index === currentSlide
                 ? 'w-12 h-2 bg-[#14D5C7]'
                 : 'w-2 h-2 bg-white/30 hover:bg-white/50'
-            }`}
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
@@ -259,7 +264,7 @@ export function HeroSlider() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-24 left-1/2 -translate-x-1/2"
+        className="absolute bottom-16 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 border-2 border-[#14D5C7]/50 rounded-full flex items-start justify-center p-2">
           <motion.div
@@ -272,3 +277,4 @@ export function HeroSlider() {
     </section>
   );
 }
+
