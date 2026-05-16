@@ -13,56 +13,56 @@ export function Programs() {
 
   const programs = [
     {
-      icon: <Users className="text-[#14D5C7]" size={40} />,
+      icon: <Users className="text-white" size={40} />,
       title: 'School Counselor',
       description: 'B2B college counselor dispatch to schools',
       link: '/programs/schoolcounselor',
       comingSoon: false
     },
     {
-      icon: <Plane className="text-[#14D5C7]" size={40} />,
+      icon: <Plane className="text-white" size={40} />,
       title: 'Study Tours',
       description: 'Short-term international study programs',
       link: '/programs/study-tours',
       comingSoon: false
     },
     {
-      icon: <GraduationCap className="text-[#14D5C7]" size={40} />,
+      icon: <GraduationCap className="text-white" size={40} />,
       title: 'University Admission',
       description: 'Taiwan & English-speaking university support',
       link: '/programs/university',
       comingSoon: false
     },
     {
-      icon: <School className="text-[#14D5C7]" size={40} />,
+      icon: <School className="text-white" size={40} />,
       title: 'High School Abroad',
       description: 'Canada & New Zealand high school opportunities',
       link: '/programs/high-school',
       comingSoon: false
     },
     {
-      icon: <Globe className="text-[#14D5C7]" size={40} />,
+      icon: <Globe className="text-white" size={40} />,
       title: 'Mandarin Chinese',
       description: 'Online Mandarin learning with Taiwanese teachers',
       link: '/programs/mandarin',
       comingSoon: false
     },
     {
-      icon: <MessageCircle className="text-[#14D5C7]" size={40} />,
+      icon: <MessageCircle className="text-white" size={40} />,
       title: 'Counselling',
       description: 'Career counselling online or in-person',
       link: '/programs/counselling',
       comingSoon: false
     },
     {
-      icon: <BookOpen className="text-[#14D5C7]" size={40} />,
+      icon: <BookOpen className="text-white" size={40} />,
       title: 'Workshop',
       description: 'Self-discovery workshops twice/year',
       link: '/programs/workshop',
       comingSoon: false
     },
     {
-      icon: <Award className="text-[#14D5C7]" size={40} />,
+      icon: <Award className="text-white" size={40} />,
       title: 'Mentoring',
       description: 'Long-term mentoring support',
       link: '/programs/mentoring',
